@@ -15,15 +15,15 @@ $string = '<?xml version="1.0" encoding="UTF-8"?>
 
     $xml = simplexml_load_string($string);
 
-   /*  echo "<pre>";
+    echo "<pre>";
     print_r($xml);
-    echo "<pre>";exit; */
+    echo "<pre>";exit; 
 
     //Carrega xml com base em um arquivo
     //$xml = simplexml_load_file(__dir__,'/arquivo.xml');
 
-    echo 'ID:' .$xml->user->id."\n";
+   /*  echo 'ID:' .$xml->user->id."\n";
     echo 'Nome:' .$xml->user->name."\n";
-    echo 'E-mail:' .$xml->user->email."\n";
+    echo 'E-mail:' .$xml->user->email."\n"; */
 
     ?>

@@ -15,7 +15,7 @@ $router->get('/', function () use ($router) {
     return 'Primeira API REST com Lumen...';
 });
 
-//API REST COURSES
+//API
 $router->group(['prefix' => 'courses'], function ()  use($router){
     $router->get('/', 'CourseController@index');
     $router->get('/{course}', 'CourseController@show');
@@ -23,10 +23,6 @@ $router->group(['prefix' => 'courses'], function ()  use($router){
     $router->put('/{course}', 'CourseController@update');
     $router->delete('/{course}', 'CourseControllere@destroy');
 });
-
-//GET guzzle index request
-$router->get('/guzzle','GuzzleController@index');
-
 
 //XML ROUTES
 
@@ -37,3 +33,25 @@ $router->get("/xml/gerar", function(){
  $router->get("/xml/ler", function(){
     return view("ler-xml");
  });
+
+ //NF-E Routes
+
+/*  $router->post('/testar','PostController@TestCertificate');
+ $router->post('/consultar','PostController@Consultar');
+ $router->post('/cancelar','PostController@Cancelar');
+ $router->post('/finalizar','PostController@Finalizar');
+ $router->post('/criar','PostController@Criar');
+ $router->post('/vincular','PostController@VincularProdutos');
+ $router->post('/consultar','PostController@ConsultarProdutoAquisicao');
+ $router->post('/dados','PostController@Dados');
+ $router->post('/receber','PostController@ReceberArquivoNFe'); */
+
+//Guzzle routes
+
+$router->get('/guzle/post','GuzzleController@postRequest');
+$router->get('/guzzle/get','GuzzleController@getRequest');
+
+$router->post('store','PostController@store');
+$router->get('get','PostController@get');
+
+

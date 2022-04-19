@@ -21,6 +21,7 @@
  //guzzle post with JSON example
 
     $client = new \GuzzleHttp\Client(["base_uri" => "http://httpbin.org"]);
+    
     $options = [
         'json' => [
             "fruit" => "apple"
