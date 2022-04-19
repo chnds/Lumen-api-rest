@@ -11,11 +11,27 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return 'Primeira API REST com Lumen...';
-});
+//Guzzle routes
 
-//API
+$router->post('/guzle/post','GuzzleController@postRequest');
+$router->get('/guzzle/get','GuzzleController@getRequest');
+
+// Armazenamento e leitura de requisições.
+
+$router->post('store','PostController@store');
+$router->get('get','PostController@get');
+
+
+//Routas XML
+
+$router->get("/xml/ler", function(){
+    return view("ler-xml");
+ });
+
+$router->get("/xml/gerar", function(){
+    return view("gerar-xml");
+ });
+ 
 $router->group(['prefix' => 'courses'], function ()  use($router){
     $router->get('/', 'CourseController@index');
     $router->get('/{course}', 'CourseController@show');
@@ -24,17 +40,11 @@ $router->group(['prefix' => 'courses'], function ()  use($router){
     $router->delete('/{course}', 'CourseControllere@destroy');
 });
 
-//XML ROUTES
 
-$router->get("/xml/gerar", function(){
-    return view("gerar-xml");
- });
 
- $router->get("/xml/ler", function(){
-    return view("ler-xml");
- });
 
- //NF-E Routes
+
+ //Routas NF-S
 
 /*  $router->post('/testar','PostController@TestCertificate');
  $router->post('/consultar','PostController@Consultar');
@@ -46,12 +56,5 @@ $router->get("/xml/gerar", function(){
  $router->post('/dados','PostController@Dados');
  $router->post('/receber','PostController@ReceberArquivoNFe'); */
 
-//Guzzle routes
-
-$router->get('/guzle/post','GuzzleController@postRequest');
-$router->get('/guzzle/get','GuzzleController@getRequest');
-
-$router->post('store','PostController@store');
-$router->get('get','PostController@get');
 
 

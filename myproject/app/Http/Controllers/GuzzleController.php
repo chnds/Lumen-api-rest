@@ -8,20 +8,20 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 class GuzzleController extends BaseController
 {
 
-    public function postRequest()
+    public function postRequest() //Teste requisição via POST
     {
-        $client = new \GuzzleHttp\Client(['verify' => false]);
-        $response = $client->request('POST', 'https://piloto-iss.curitiba.pr.gov.br/ISSObrasWS//api/Nfe/Teste', [
-            'form_params' => [
-                'title' => 'Post 1',
-            ]
-        ]);
-        $response = $response->getBody()->getContents();
-        echo '<pre>';
-        print_r($response);
+        $client = new \GuzzleHttp\Client(["base_uri" => "http://httpbin.org"]);
+        $options = [
+            'json' => [
+                "fruit" => "apple"
+               ]
+           ]; 
+        $response = $client->post("/post", $options);
+        
+        echo $response->getBody();
     }
 
-    public function getRequest()
+    public function getRequest() //Teste de requisição via GET
     {
         $client = new \GuzzleHttp\Client(['verify' => false]);
         $request = $client->get('https://api.github.com/users/chnds');
