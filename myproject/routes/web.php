@@ -16,6 +16,7 @@ $router->get('/', function () use ($router) {
 });
 
 //API REST COURSES
+
 $router->group(['prefix' => 'courses'], function ()  use($router){
     $router->get('/', 'CourseController@index');
     $router->get('/{course}', 'CourseController@show');
@@ -23,3 +24,7 @@ $router->group(['prefix' => 'courses'], function ()  use($router){
     $router->put('/{course}', 'CourseController@update');
     $router->delete('/{course}', 'CourseControllere@destroy');
 });
+
+//GET guzzle index request
+
+$router->get('/guzzle','GuzzleController@index');
