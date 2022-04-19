@@ -16,7 +16,6 @@ $router->get('/', function () use ($router) {
 });
 
 //API REST COURSES
-
 $router->group(['prefix' => 'courses'], function ()  use($router){
     $router->get('/', 'CourseController@index');
     $router->get('/{course}', 'CourseController@show');
@@ -26,5 +25,15 @@ $router->group(['prefix' => 'courses'], function ()  use($router){
 });
 
 //GET guzzle index request
-
 $router->get('/guzzle','GuzzleController@index');
+
+
+//XML ROUTES
+
+$router->get("/xml/gerar", function(){
+    return view("gerar-xml");
+ });
+
+ $router->get("/xml/ler", function(){
+    return view("ler-xml");
+ });
